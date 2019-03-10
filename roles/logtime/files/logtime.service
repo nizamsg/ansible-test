@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/logtime.sh
-TimeoutStartSec=3
+ExecStart=/bin/bash /usr/bin/logtime.sh
+TimeoutStartSec=0
 
 [Install]
 WantedBy=default.target
