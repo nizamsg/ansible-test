@@ -1,0 +1,17 @@
+---
+# PHP packages for php-fpm
+php_packages:
+  - php
+  - php-fpm
+  - php-enchant
+  - php-IDNA_Convert
+  - php-mbstring
+  - php-mysql
+  - php-PHPMailer
+  - php-process
+  - php-simplepie
+  - php-xml
+
+# www.conf source and dest (to be disabled)
+wwwconf_src: "/etc/php-fpm.d/www.conf"
+wwwconf_dst: "/etc/php-fpm.d/www.disabled"

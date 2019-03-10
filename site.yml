@@ -1,0 +1,16 @@
+---
+- name: Devops Automation
+  hosts: all
+  #remote_user: ec2-user
+  become: true
+  #become_method: sudo
+
+  roles:
+    - users
+    - common
+    - ntp
+    - nginx
+    - php-fpm
+    - percona-mysql
+    - wordpress
+    - logtime

@@ -1,0 +1,4 @@
+---
+# logtime files destination
+sh_dest: "/usr/bin/logtime.sh"
+svc_dest: "/lib/systemd/system/logtime.service"

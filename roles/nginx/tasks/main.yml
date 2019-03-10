@@ -1,0 +1,25 @@
+---
+- name: Install nginx
+  yum:
+    name: nginx
+    state: installed
+
+- name: Replace nginx.conf default file
+  copy:
+    src: "nginx.conf"
+    dest: "/etc/nginx/nginx.conf"
+    owner: root
+    group: root
+    mode: 0644
+    backup: yes
+
+- name: Copy nginx configuration for wordpress
+  template:
+    src: default.conf
+    dest: "{{ nginx_confd }}"
+  notify: restart nginx
+
+- name: Creates www directory
+  file:
+    path: "{{ www_dir }}"
+    state: directory

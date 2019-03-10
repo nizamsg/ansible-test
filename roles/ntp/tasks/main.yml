@@ -1,0 +1,14 @@
+---
+- name: Enable ntp at boot
+  service:
+    name: "ntpd"
+    state: started
+    enabled: yes
+  tags: ntp
+
+- name: Configure NTP servers
+  template:
+    src: "ntp.conf"
+    dest: "/etc/ntp.conf"
+  tags: ntp
+  notify: restart ntp

@@ -1,0 +1,11 @@
+---
+- name: Create users
+  user:
+    name: "{{ item }}"
+  with_items: "{{ users }}"
+
+- name: Add SSH key for users
+  authorized_key:
+    user: "{{ item }}"
+    key: "{{ lookup('file', 'files/'+ item + '.pub') }}"
+  with_items: "{{ users }}"

@@ -1,0 +1,24 @@
+---
+- name: Reload ansible_facts
+  setup:
+
+- name: Copy the EPEL repository definition
+  copy:
+    src: "epel.repo"
+    dest: "{{ epel_dest }}"
+
+- name: Create the GPG key for EPEL
+  copy:
+    src: "RPM-GPG-KEY-EPEL-7"
+    dest: "{{ gpg_dest }}"
+
+- name: Update all packages
+  yum:
+    name: "*"
+    state: latest
+
+- name: Install required packages
+  yum:
+    name: "{{ required_packages }}"
+    state: installed
+  

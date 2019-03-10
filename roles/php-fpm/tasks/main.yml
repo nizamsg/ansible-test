@@ -1,0 +1,15 @@
+---
+- name: Install php-fpm
+  yum:
+    name: "{{ php_packages }}"
+    state: present
+
+- name: Disable default pool
+  command: mv {{ wwwconf_src }} {{ wwwconf_dst }} creates={{ wwwconf_dst }}
+  notify: restart php-fpm
+
+- name: Copy php-fpm configuration
+  template:
+    src: wordpress.conf
+    dest: /etc/php-fpm.d/
+  notify: restart php-fpm

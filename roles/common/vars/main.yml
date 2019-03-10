@@ -1,0 +1,17 @@
+---
+# EPEL repo destination folder
+epel_dest: "/etc/yum.repos.d/epel.repo"
+
+# GPG key destination folder
+gpg_dest: "/etc/pki/rpm-gpg"
+
+# list of required packages
+required_packages:
+  - screen
+  - vim
+  - htop
+  - git
+  - atop
+  - ntp
+  - unbound
+  - monit

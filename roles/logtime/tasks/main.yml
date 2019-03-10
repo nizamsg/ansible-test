@@ -1,0 +1,27 @@
+---
+- name: Install logtime service
+  copy:
+    src: "logtime.sh"
+    dest: "{{ sh_dest }}"
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Install logtime sysconfig
+  copy:
+    src: "logtime.service"
+    dest: "{{ svc_dest }}"
+    owner: root
+    group: root
+    mode: 0644
+  notify: reload systemctl
+
+- name: Enable logtime service
+  service:
+    name: logtime
+    enabled: yes
+
+- name: Start logtime service
+  service:
+    name: logtime
+    state: started

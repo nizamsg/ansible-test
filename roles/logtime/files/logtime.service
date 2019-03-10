@@ -1,0 +1,11 @@
+[Unit]
+Description=Local LogTime
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/logtime.sh
+TimoueStartSec=3
+
+[Install]
+WantedBy=default.target
